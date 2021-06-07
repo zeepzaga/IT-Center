@@ -1,0 +1,25 @@
+﻿<Page x:Class="IT_Center.Pages.MainMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IT_Center.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainMenuPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Button Height="100" Width="100">Заказы</Button>
+                <Button Height="100" Width="100">Товары</Button>
+                <Button Height="100" Width="100">Услуги</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Height="100" Width="100">Детали</Button>
+                <Button Height="100" Width="100">Рабтники</Button>
+                <Button Height="100" Width="100">Клиенты</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

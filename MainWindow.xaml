@@ -1,0 +1,40 @@
+﻿<Window x:Class="IT_Center.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:IT_Center"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="900" MinHeight="550" MinWidth="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="{StaticResource PColor_First}">
+            <TextBlock MouseLeftButtonDown="TblBack_MouseLeftButtonDown" x:Name="TblBack" Foreground="White" HorizontalAlignment="Left" FontSize="20" Style="{StaticResource TbkTriggered}" FontFamily="Segoe MDL2 Assets" Text="&#xE830;" RenderTransformOrigin="0.5,0.5"></TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Style="{StaticResource TbkBody}" Margin="10 5" Foreground="White" FontSize="20">IT-Сервис</TextBlock>
+                <Grid Margin="-6 0 -9 0"  Width="1" Name="GridLine" Background="White"></Grid>
+                <StackPanel x:Name="SpLogout" VerticalAlignment="Center">
+                    <TextBlock x:Name="TblLogout" MouseLeftButtonDown="TblLogout_MouseLeftButtonDown" Foreground="White" FontSize="20" HorizontalAlignment="Center" Style="{StaticResource TbkTriggered}" FontFamily="Segoe MDL2 Assets" Text="&#xE72D;" RenderTransformOrigin="0.5,0.5" Margin="10 2 0 0" Width="24" Height="21">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-180"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform></TextBlock>
+                    <TextBlock MouseLeftButtonDown="TblLogout_MouseLeftButtonDown" TextAlignment="Center" FontSize="12" Margin="5 0" Style="{StaticResource TbkTriggered}" Foreground="White" Width="44" Height="18"><Run Text="Выйти"/></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Frame ContentRendered="MainFrame_ContentRendered" Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+        <Grid Grid.Row="2" Background="{StaticResource PColor_Third}">
+            <TextBlock  x:Name="TbDateTime" Style="{StaticResource TbkBody}" FontSize="20" HorizontalAlignment="Right" Foreground="White"></TextBlock>
+        </Grid>
+    </Grid>
+</Window>

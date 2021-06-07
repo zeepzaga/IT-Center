@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c4af1d4c21e24c65b1582e24fa3a67e7" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Detail" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Employee" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="3" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProductOfSale" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Sale" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Service" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ServiceOfOrder" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ServiceOfOrderStatus" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TypeOfDetail" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TypeOfProduct" Width="1.5" PointX="0.75" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="1.5" PointY="21.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Sale_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Detail_TypeOfDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Employee_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Employee_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ServiceOfOrder_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_TypeOfProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductOfSale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductOfSale_Sale" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ServiceOfOrder_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ServiceOfOrder_ServiceOfOrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DetailOfOrder" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
