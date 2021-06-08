@@ -28,7 +28,7 @@ namespace IT_Center.Pages
         private void Update()
         {
             IcOrders.ItemsSource = AppData.Context.Order.ToList()
-                .Where(p => p.OrderNumber.Contains(TbName.Text)).OrderBy(p=>p.DateTimeOfCreate).ToList();
+                .Where(p => p.OrderNumber.Contains(TbName.Text)).OrderByDescending(p=>p.DateTimeOfCreate).ToList();
         }
         private void BtnCreateOrder_Click(object sender, RoutedEventArgs e)
         {

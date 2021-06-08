@@ -19,7 +19,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock VerticalAlignment="Top" Style="{StaticResource TbkBody}">Описание:</TextBlock>
-                <TextBox TextWrapping="Wrap" x:Name="TbDescription" Text="{Binding Description}" Height="100" Width="250"></TextBox>
+                <TextBox VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" x:Name="TbDescription" Text="{Binding Description}" Height="100" Width="250"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="BtnCancel" Click="BtnCancel_Click" Style="{StaticResource BtnCancel}">Отмена</Button>

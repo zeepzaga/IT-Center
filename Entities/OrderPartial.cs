@@ -9,6 +9,7 @@ namespace IT_Center.Entities
 {
     public partial class Order
     {
+        public DateTime? DateTimeOfEnd { get; set; }
         public string OrderNumber
         {
             get
@@ -47,11 +48,24 @@ namespace IT_Center.Entities
             {
                 if (ServiceOfOrder.ToList().Count(p => p.ServiceOfOrderStatusId == 1) <= ServiceOfOrder.Count
                    && ServiceOfOrder.ToList().Count(p => p.ServiceOfOrderStatusId == 1) != 0)
+                {
+                    DateTimeOfEnd = null;
                     return "Выполняется";
+                }
                 else if (ServiceOfOrder.ToList().Count(p => p.ServiceOfOrderStatusId == 3) == ServiceOfOrder.Count)
+                {
+                    ServiceOfOrder serviceOfOrder = ServiceOfOrder.OrderByDescending(p => p.DateTimeEnd).FirstOrDefault();
+                    if (serviceOfOrder != null)
+                        DateTimeOfEnd = serviceOfOrder.DateTimeEnd;
                     return "Отменён";
+                }
                 else
+                {
+                    ServiceOfOrder serviceOfOrder = ServiceOfOrder.OrderByDescending(p => p.DateTimeEnd).FirstOrDefault();
+                    if (serviceOfOrder != null)
+                        DateTimeOfEnd = serviceOfOrder.DateTimeEnd;
                     return "Выполнен";
+                }
             }
         }
         public Brush StatusOfOrderBrush
@@ -73,7 +87,15 @@ namespace IT_Center.Entities
             {
                 if (DateTimeOfEnd == null)
                     return "";
-                return $"{DateTimeOfEnd:dd.mm.yyyy HH:mm}";
+                return $"{DateTimeOfEnd:dd.MM.yyyy HH:mm}";
+            }
+        }
+        public decimal TotalPrice
+        {
+            get
+            {
+                return ServiceOfOrder.ToList().Where(p=>p.ServiceOfOrderStatusId!=3).ToList()
+                    .Sum(p => p.Service.Price) + DetailOfOrder.Sum(p=>p.Count*p.Detail.Price);
             }
         }
     }

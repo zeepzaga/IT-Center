@@ -34,7 +34,7 @@ namespace IT_Center.Windows
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if(!String.IsNullOrWhiteSpace(TbName.Text) || !String.IsNullOrWhiteSpace(TbLastName.Text))
+            if(String.IsNullOrWhiteSpace(TbName.Text) || String.IsNullOrWhiteSpace(TbLastName.Text))
             {
                 MessageBox.Show("Имя и фамилия обязательны для заполнения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

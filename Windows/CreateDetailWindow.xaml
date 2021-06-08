@@ -26,7 +26,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock VerticalAlignment="Top" FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Описание:</TextBlock>
-                        <TextBox TextWrapping="Wrap" Text="{Binding Description}" x:Name="TbDescription" Height="100" Width="180"></TextBox>
+                        <TextBox VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Text="{Binding Description}" x:Name="TbDescription" Height="100" Width="180"></TextBox>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 5">

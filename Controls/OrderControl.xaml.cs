@@ -72,5 +72,27 @@ namespace IT_Center.Controls
             PrintWindow printWindow = new PrintWindow((sender as Button).DataContext as Order);
             printWindow.ShowDialog();
         }
+
+        private void BtnCancelOrder_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in ((sender as Button).DataContext as Order).ServiceOfOrder.ToList())
+            {
+                item.ServiceOfOrderStatusId = 3;
+            }
+            var buff = DataContext;
+            DataContext = null;
+            DataContext = buff;
+        }
+
+        private void BtnDoneOrder_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in ((sender as Button).DataContext as Order).ServiceOfOrder.ToList())
+            {
+                item.ServiceOfOrderStatusId = 2;
+            }
+            var buff = DataContext;
+            DataContext = null;
+            DataContext = buff;
+        }
     }
 }

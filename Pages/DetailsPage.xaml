@@ -37,7 +37,7 @@
                                         <TextBlock Style="{StaticResource TbkBody}" Text="|"></TextBlock>
                                         <TextBlock Style="{StaticResource TbkBody}" Text="{Binding Name}"></TextBlock>
                                     </StackPanel>
-                                    <TextBox IsReadOnly="True" Text="{Binding Description}" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" 
+                                    <TextBox TextWrapping="Wrap" IsReadOnly="True" Text="{Binding Description}" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" 
                             Height="100" Width="auto" VerticalScrollBarVisibility="Visible"></TextBox>
                                     <TextBlock Style="{StaticResource TbkBody}" Text="{Binding Price, StringFormat={}{0} р.}"></TextBlock>
                                     <StackPanel Orientation="Horizontal">

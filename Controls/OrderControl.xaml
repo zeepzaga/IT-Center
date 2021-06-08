@@ -90,9 +90,12 @@
                 </ItemsControl>
             </Grid>
             <Grid Height="1" Margin="20 0" Background="Black" Grid.Row="3"></Grid>
-                <StackPanel Margin="15" Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal">
-                    <Button x:Name="BtnPrint" Click="BtnPrint_Click">Печать</Button>
-                </StackPanel>
+            <TextBlock Margin="20 5" FontWeight="Bold" FontFamily="Segoe UI" Grid.Row="4" Style="{StaticResource TbkBody}" Text="{Binding TotalPrice, StringFormat={}{0} р.}" HorizontalAlignment="Left"></TextBlock>
+            <StackPanel Margin="15" Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="BtnCancelOrder" Click="BtnCancelOrder_Click" Style="{StaticResource BtnCancel}">Отменить заказ</Button>
+                <Button x:Name="BtnDoneOrder" Click="BtnDoneOrder_Click">Выполнить заказ</Button>
+                <Button x:Name="BtnPrint" Click="BtnPrint_Click" Style="{StaticResource BtnEdit}">Печать</Button>
+            </StackPanel>
         </Grid>
     </Border>
 </UserControl>

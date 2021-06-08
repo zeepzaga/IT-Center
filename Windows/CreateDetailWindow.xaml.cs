@@ -58,7 +58,7 @@ namespace IT_Center.Windows
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if(!String.IsNullOrWhiteSpace(TbDetailName.Text) || CbTypeOfDetail.SelectedIndex < 0)
+            if(String.IsNullOrWhiteSpace(TbDetailName.Text) || CbTypeOfDetail.SelectedIndex < 0)
             {
                 MessageBox.Show("Название и тип детали обязательны для заполнения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

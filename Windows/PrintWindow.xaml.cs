@@ -63,8 +63,8 @@ namespace IT_Center.Windows
             foreach (var item in order.ServiceOfOrder.ToList().Where(p => p.ServiceOfOrderStatusId != 3).ToList())
             {
                 result.Append("<tr>");
-                result.Append($"<td>{item.Service.Name}</td>");
-                result.Append($"<td>{item.Service.Price}</td>");
+                result.Append($"<td colspan=\"2\">{item.Service.Name}</td>");
+                result.Append($"<td colspan=\"2\">{item.Service.Price}</td>");
                 result.Append("</tr>");
             }
             result.Append("</table>");

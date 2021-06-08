@@ -15,7 +15,7 @@
             <TextBox x:Name="TbLogin" Width="200"></TextBox>
             <TextBlock Margin="5 0" Style="{StaticResource TbkBody}">Пароль:</TextBlock>
             <PasswordBox Name="PbPassword" Width="200"></PasswordBox>
-            <Button HorizontalAlignment="Stretch" Name="BtnLogin" Click="BtnLogin_Click" Width="auto">Войти</Button>
+            <Button IsDefault="True" HorizontalAlignment="Stretch" Name="BtnLogin" Click="BtnLogin_Click" Width="auto">Войти</Button>
         </StackPanel>
     </Grid>
 </Page>

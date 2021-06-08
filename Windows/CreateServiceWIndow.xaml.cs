@@ -42,7 +42,7 @@ namespace IT_Center.Windows
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(TbName.Text))
+            if (String.IsNullOrWhiteSpace(TbName.Text))
             {
                 MessageBox.Show("Введите название для услуги!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

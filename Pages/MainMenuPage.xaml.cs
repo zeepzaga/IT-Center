@@ -50,5 +50,13 @@ namespace IT_Center.Pages
         {
             NavigationService.Navigate(new ClientListPage());
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (AppData.currentEmployee.RoleId != 1)
+            {
+                BtnWorkerList.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

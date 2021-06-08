@@ -23,7 +23,6 @@ namespace IT_Center.Entities
     
         public int Id { get; set; }
         public System.DateTime DateTimeOfCreate { get; set; }
-        public Nullable<System.DateTime> DateTimeOfEnd { get; set; }
         public int ClientId { get; set; }
         public int EmployeeId { get; set; }
         public string Description { get; set; }
