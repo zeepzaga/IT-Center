@@ -73,7 +73,7 @@ namespace IT_Center.Entities
             {
                 if (DateTimeOfEnd == null)
                     return "";
-                return $"{DateTimeOfEnd:dd.mm.yyyy mm:hh}";
+                return $"{DateTimeOfEnd:dd.mm.yyyy HH:mm}";
             }
         }
     }

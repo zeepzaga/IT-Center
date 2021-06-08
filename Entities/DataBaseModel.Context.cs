@@ -30,16 +30,12 @@ namespace IT_Center.Entities
         public virtual DbSet<DetailOfOrder> DetailOfOrder { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ProductOfSale> ProductOfSale { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Sale> Sale { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ServiceOfOrder> ServiceOfOrder { get; set; }
         public virtual DbSet<ServiceOfOrderStatus> ServiceOfOrderStatus { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfDetail> TypeOfDetail { get; set; }
-        public virtual DbSet<TypeOfProduct> TypeOfProduct { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

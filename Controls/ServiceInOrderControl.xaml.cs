@@ -21,23 +21,29 @@ namespace IT_Center.Controls
     /// </summary>
     public partial class ServiceInOrderControl : UserControl
     {
+        public event EventHandler SelectionChanged;
+
         public ServiceInOrderControl()
         {
             InitializeComponent();
             CbStatus.ItemsSource = AppData.Context.ServiceOfOrderStatus.ToList();
+
         }
 
         private void CbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                var serviceOfOrder = DataContext as ServiceOfOrder;
-                if (((sender as ComboBox).SelectedItem as ServiceOfOrderStatus).Id == 2
-                    || ((sender as ComboBox).SelectedItem as ServiceOfOrderStatus).Id == 3)
+                SelectionChanged(sender, e);
+                if ((DataContext as ServiceOfOrderStatus) != CbStatus.SelectedItem as ServiceOfOrderStatus)
                 {
-                    serviceOfOrder.DateTimeEnd = DateTime.Now;
-                    AppData.Context.SaveChanges();
-                    //DataContext = serviceOfOrder;
+                    var serviceOfOrder = DataContext as ServiceOfOrder;
+                    if (((sender as ComboBox).SelectedItem as ServiceOfOrderStatus).Id == 2
+                        || ((sender as ComboBox).SelectedItem as ServiceOfOrderStatus).Id == 3)
+                    {
+                        serviceOfOrder.DateTimeEnd = DateTime.Now;
+                        AppData.Context.SaveChanges();
+                    }
                 }
             }
             catch

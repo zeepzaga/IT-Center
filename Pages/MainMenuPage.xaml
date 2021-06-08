@@ -12,13 +12,12 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button x:Name="BtnOrderList" Click="BtnOrderList_Click" Height="100" Width="100">Заказы</Button>
-                <!--<Button Height="100" Width="100">Товары</Button>-->
                 <Button x:Name="BtnService" Click="BtnService_Click" Height="100" Width="100">Услуги</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="BtnDetailsPage" Click="BtnDetailsPage_Click" Height="100" Width="100">Детали</Button>
-                <Button Height="100" Width="100">Работники</Button>
-                <Button Height="100" Width="100">Клиенты</Button>
+                <Button x:Name="BtnWorkerList" Click="BtnWorkerList_Click" Height="100" Width="100">Работники</Button>
+                <Button x:Name="BtnClientList" Click="BtnClientList_Click" Height="100" Width="100">Клиенты</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

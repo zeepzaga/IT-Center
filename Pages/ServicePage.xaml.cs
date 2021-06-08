@@ -30,7 +30,11 @@ namespace IT_Center.Pages
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateServiceWIndow createServiceWIndow = 
+                new CreateServiceWIndow((sender as Button).DataContext as Service);
+            createServiceWIndow.ShowDialog();
+            AppData.Context.ChangeTracker.Entries<Service>().ToList().ForEach(p => p.Reload());
+            Update();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -46,9 +50,10 @@ namespace IT_Center.Pages
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 AppData.Context.ServiceOfOrder.RemoveRange(
-                    AppData.Context.ServiceOfOrder.Where(p => p.Service == service));
+                    AppData.Context.ServiceOfOrder.ToList().Where(p => p.Service == service));
                 AppData.Context.Service.Remove(service);
                 AppData.Context.SaveChanges();
+                Update();
             }
         }
         private void Update()
@@ -64,8 +69,9 @@ namespace IT_Center.Pages
 
         private void BtnService_Click(object sender, RoutedEventArgs e)
         {
-            CreateServiceWIndow createServiceWIndow = new CreateServiceWIndow();
+            CreateServiceWIndow createServiceWIndow = new CreateServiceWIndow(null);
             createServiceWIndow.ShowDialog();
+            AppData.Context.ChangeTracker.Entries<Service>().ToList().ForEach(p => p.Reload());
             Update();
         }
     }

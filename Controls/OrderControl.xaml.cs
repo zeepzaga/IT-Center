@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IT_Center.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace IT_Center.Controls
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        private  Order order;
         public OrderControl()
         {
             InitializeComponent();
@@ -42,7 +44,26 @@ namespace IT_Center.Controls
                 GridLine.Visibility = Visibility.Visible;
                 txt.Text = "\xE70E";
             }
-            
+
+        }
+
+        private void ServiceInOrderControl_SelectionChanged(object sender, EventArgs e)
+        {
+            var serviceOfOrder = ((sender as ComboBox).Parent as StackPanel).DataContext as ServiceOfOrder;
+            ServiceOfOrder serviceOfOrder1 = order.ServiceOfOrder.FirstOrDefault(p => p.Id == serviceOfOrder.Id);
+            if (serviceOfOrder1
+                .ServiceOfOrderStatusId != serviceOfOrder1.ServiceOfOrderStatus.Id)
+            {
+                AppData.Context.ChangeTracker.Entries<Order>().ToList().ForEach(p => p.Reload());
+                var buff = DataContext;
+                DataContext = null;
+                DataContext = buff;
+            }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            order = DataContext as Order;
         }
     }
 }

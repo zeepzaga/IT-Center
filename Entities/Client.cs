@@ -18,7 +18,6 @@ namespace IT_Center.Entities
         public Client()
         {
             this.Order = new HashSet<Order>();
-            this.Sale = new HashSet<Sale>();
         }
     
         public int Id { get; set; }
@@ -30,7 +29,5 @@ namespace IT_Center.Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sale> Sale { get; set; }
     }
 }

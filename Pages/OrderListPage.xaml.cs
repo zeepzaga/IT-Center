@@ -23,8 +23,13 @@ namespace IT_Center.Pages
         public OrderListPage()
         {
             InitializeComponent();
+            Update();
         }
-
+        private void Update()
+        {
+            IcOrders.ItemsSource = AppData.Context.Order.ToList()
+                .Where(p => p.OrderNumber.Contains(TbName.Text)).OrderBy(p=>p.DateTimeOfCreate).ToList();
+        }
         private void BtnCreateOrder_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new CreateOrderPage());
@@ -32,7 +37,12 @@ namespace IT_Center.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            IcOrders.ItemsSource = AppData.Context.Order.ToList();
+            Update();
+        }
+
+        private void TbName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Update();
         }
     }
 }

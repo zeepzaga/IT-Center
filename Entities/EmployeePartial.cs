@@ -15,5 +15,14 @@ namespace IT_Center.Entities
                 return $"{LastName} {FirstName} {MiddleName}";
             }
         }
+        public string Status
+        {
+            get
+            {
+                if (IsWork == true)
+                    return "Работает";
+                return "Уволен";
+            }
+        }
     }
 }

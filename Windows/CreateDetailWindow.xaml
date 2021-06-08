@@ -14,34 +14,34 @@
                     <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" FontSize="24">Основная информация</TextBlock>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Название детали:</TextBlock>
-                        <TextBox Width="180" x:Name="TbDetailName"></TextBox>
+                        <TextBox Text="{Binding Name}" Width="180" x:Name="TbDetailName"></TextBox>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                         <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Тип детали:</TextBlock>
-                        <ComboBox x:Name="CbTypeOfDetail"></ComboBox>
+                        <ComboBox DisplayMemberPath="Name" IsTextSearchEnabled="True" IsEditable="True" SelectedItem="{Binding TypeOfDetail}" x:Name="CbTypeOfDetail"></ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Цена:</TextBlock>
-                        <TextBox Width="180"></TextBox>
+                        <TextBox Text="{Binding Price}" x:Name="TbPrice" Width="180"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock VerticalAlignment="Top" FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Описание:</TextBlock>
-                        <TextBox Height="100" Width="180"></TextBox>
+                        <TextBox TextWrapping="Wrap" Text="{Binding Description}" x:Name="TbDescription" Height="100" Width="180"></TextBox>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 5">
                     <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" FontSize="24">Основная информация</TextBlock>
                     <Border Height="210" Width="210" BorderBrush="Black" BorderThickness="1" Background="LightGray">
-                        <Image ></Image>
+                        <Image x:Name="ImgPhoto" Source="{Binding Photo}"></Image>
                     </Border>
                     <StackPanel Margin="5 5 20 5" HorizontalAlignment="Right" Orientation="Horizontal">
                         <Button x:Name="BtnPhoto" Click="BtnPhoto_Click">Загрузить фото</Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button Style="{StaticResource BtnCancel}" Name="BtnCancel">Отмена</Button>
-                <Button x:Name="BtnSave">Сохранить</Button>
+            <StackPanel Margin="20 0" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Style="{StaticResource BtnCancel}" Click="BtnCancel_Click" Name="BtnCancel">Отмена</Button>
+                <Button Click="BtnSave_Click" x:Name="BtnSave">Сохранить</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

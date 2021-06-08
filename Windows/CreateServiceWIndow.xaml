@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IT_Center.Windows"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize">
+        Title="" Height="450" Width="800" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize" Unloaded="Window_Unloaded">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" FontSize="28" Name="TbTitle">Добавление услуги</TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Style="{StaticResource TbkBody}">Название услуги:</TextBlock>
-                <TextBox Width="250"></TextBox>
+                <TextBox Text="{Binding Name}" Name="TbName" Width="250"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Style="{StaticResource TbkBody}">Цена:</TextBlock>
-                <TextBox Width="250"></TextBox>
+                <TextBox Text="{Binding Price}" Name="TbPrice" Width="250"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock VerticalAlignment="Top" Style="{StaticResource TbkBody}">Описание:</TextBlock>
-                <TextBox Height="100" Width="250"></TextBox>
+                <TextBox TextWrapping="Wrap" x:Name="TbDescription" Text="{Binding Description}" Height="100" Width="250"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="BtnCancel" Click="BtnCancel_Click" Style="{StaticResource BtnCancel}">Отмена</Button>

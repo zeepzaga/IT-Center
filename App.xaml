@@ -49,6 +49,7 @@
         <!--#region Images-->
 
         <BitmapImage x:Key="NullImage" UriSource="\Resources\nullimg.png"/>
+        <BitmapImage x:Key="NullImageWorker" UriSource="\Resources\nullImageWorker.jpg"/>
 
         <Style TargetType="{x:Type Image}">
             <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>

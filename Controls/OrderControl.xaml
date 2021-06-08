@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IT_Center.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920">
+             d:DesignHeight="1080" d:DesignWidth="1920" Loaded="UserControl_Loaded">
     <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="10">
         <Grid x:Name="MainGrid">
             <Grid.RowDefinitions>
@@ -22,7 +22,7 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Margin="10">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource TbkBody}" FontFamily="Segoe UI" FontWeight="Bold">Номер закза:</TextBlock>
+                        <TextBlock Style="{StaticResource TbkBody}" FontFamily="Segoe UI" FontWeight="Bold">Номер заказа:</TextBlock>
                         <TextBlock Style="{StaticResource TbkBody}" Text="{Binding OrderNumber}"></TextBlock>
                     </StackPanel>
                     <StackPanel>
@@ -49,16 +49,17 @@
                 </StackPanel>
                 <StackPanel Grid.Column="1" Margin="10">
                     <TextBlock HorizontalAlignment="Center" Foreground="{Binding StatusOfOrderBrush}" Text="{Binding StatusOfOrder}" FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}"></TextBlock>
-                    <TextBlock HorizontalAlignment="Center" Text="{Binding DateTimeOfEndString}" Style="{StaticResource TbkBody}"></TextBlock>
+                    <TextBlock
+                        HorizontalAlignment="Center" Text="{Binding DateTimeOfEndString}" Style="{StaticResource TbkBody}"></TextBlock>
                 </StackPanel>
-                <TextBlock Name="TblExpand" MouseLeftButtonDown="TblExpand_MouseLeftButtonDown" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15" FontSize="50" Style="{StaticResource TbkTriggered}" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"></TextBlock>
+                <TextBlock Name="TblExpand" MouseLeftButtonDown="TblExpand_MouseLeftButtonDown" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20 20 30 20" FontSize="50" Style="{StaticResource TbkTriggered}" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"></TextBlock>
             </Grid>
             <Grid x:Name="GridLine" Height="1" Background="Black" Grid.Row="1"></Grid>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -71,7 +72,7 @@
                 <ItemsControl Margin="10" ItemsSource="{Binding ServiceOfOrder}" Grid.Row="1" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <local:ServiceInOrderControl></local:ServiceInOrderControl>
+                            <local:ServiceInOrderControl SelectionChanged="ServiceInOrderControl_SelectionChanged"></local:ServiceInOrderControl>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

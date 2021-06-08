@@ -45,6 +45,10 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
           <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Passport" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TelephoneNumber" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="IsWork" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -57,40 +61,12 @@
           <Property Name="EmployeeId" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Descritpion" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="TypeOfProductId" Type="int" Nullable="false" />
-          <Property Name="Photo" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="ProductOfSale">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="SaleId" Type="int" Nullable="false" />
-          <Property Name="Count" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Sale">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateTimeOfSale" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ClientId" Type="int" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -135,18 +111,11 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="TypeOfProduct">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -222,54 +191,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Product_TypeOfProduct">
-          <End Role="TypeOfProduct" Type="Self.TypeOfProduct" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeOfProduct">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="TypeOfProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductOfSale_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="ProductOfSale" Type="Self.ProductOfSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductOfSale">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductOfSale_Sale">
-          <End Role="Sale" Type="Self.Sale" Multiplicity="1" />
-          <End Role="ProductOfSale" Type="Self.ProductOfSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sale">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductOfSale">
-              <PropertyRef Name="SaleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sale_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Sale">
-              <PropertyRef Name="ClientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ServiceOfOrder_Order">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
           <End Role="ServiceOfOrder" Type="Self.ServiceOfOrder" Multiplicity="*" />
@@ -324,16 +245,12 @@
           <EntitySet Name="DetailOfOrder" EntityType="Self.DetailOfOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProductOfSale" EntityType="Self.ProductOfSale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiceOfOrder" EntityType="Self.ServiceOfOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiceOfOrderStatus" EntityType="Self.ServiceOfOrderStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeOfDetail" EntityType="Self.TypeOfDetail" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TypeOfProduct" EntityType="Self.TypeOfProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Detail_TypeOfDetail" Association="Self.FK_Detail_TypeOfDetail">
             <End Role="TypeOfDetail" EntitySet="TypeOfDetail" />
@@ -358,22 +275,6 @@
           <AssociationSet Name="FK_Order_Employee" Association="Self.FK_Order_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TypeOfProduct" Association="Self.FK_Product_TypeOfProduct">
-            <End Role="TypeOfProduct" EntitySet="TypeOfProduct" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductOfSale_Product" Association="Self.FK_ProductOfSale_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductOfSale" EntitySet="ProductOfSale" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductOfSale_Sale" Association="Self.FK_ProductOfSale_Sale">
-            <End Role="Sale" EntitySet="Sale" />
-            <End Role="ProductOfSale" EntitySet="ProductOfSale" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sale_Client" Association="Self.FK_Sale_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Sale" EntitySet="Sale" />
           </AssociationSet>
           <AssociationSet Name="FK_ServiceOfOrder_Order" Association="Self.FK_ServiceOfOrder_Order">
             <End Role="Order" EntitySet="Order" />
@@ -402,24 +303,16 @@
           <EntitySet Name="DetailOfOrder" EntityType="Model.DetailOfOrder" />
           <EntitySet Name="Employee" EntityType="Model.Employee" />
           <EntitySet Name="Order" EntityType="Model.Order" />
-          <EntitySet Name="Product" EntityType="Model.Product" />
-          <EntitySet Name="ProductOfSale" EntityType="Model.ProductOfSale" />
           <EntitySet Name="Role" EntityType="Model.Role" />
-          <EntitySet Name="Sale" EntityType="Model.Sale" />
           <EntitySet Name="Service" EntityType="Model.Service" />
           <EntitySet Name="ServiceOfOrder" EntityType="Model.ServiceOfOrder" />
           <EntitySet Name="ServiceOfOrderStatus" EntityType="Model.ServiceOfOrderStatus" />
           <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagrams" />
           <EntitySet Name="TypeOfDetail" EntityType="Model.TypeOfDetail" />
-          <EntitySet Name="TypeOfProduct" EntityType="Model.TypeOfProduct" />
           <EntitySet Name="User" EntityType="Model.User" />
           <AssociationSet Name="FK_Order_Client" Association="Model.FK_Order_Client">
             <End Role="Client" EntitySet="Client" />
             <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sale_Client" Association="Model.FK_Sale_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Sale" EntitySet="Sale" />
           </AssociationSet>
           <AssociationSet Name="FK_Detail_TypeOfDetail" Association="Model.FK_Detail_TypeOfDetail">
             <End Role="TypeOfDetail" EntitySet="TypeOfDetail" />
@@ -449,18 +342,6 @@
             <End Role="Order" EntitySet="Order" />
             <End Role="ServiceOfOrder" EntitySet="ServiceOfOrder" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_TypeOfProduct" Association="Model.FK_Product_TypeOfProduct">
-            <End Role="TypeOfProduct" EntitySet="TypeOfProduct" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductOfSale_Product" Association="Model.FK_ProductOfSale_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductOfSale" EntitySet="ProductOfSale" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductOfSale_Sale" Association="Model.FK_ProductOfSale_Sale">
-            <End Role="Sale" EntitySet="Sale" />
-            <End Role="ProductOfSale" EntitySet="ProductOfSale" />
-          </AssociationSet>
           <AssociationSet Name="FK_ServiceOfOrder_Service" Association="Model.FK_ServiceOfOrder_Service">
             <End Role="Service" EntitySet="Service" />
             <End Role="ServiceOfOrder" EntitySet="ServiceOfOrder" />
@@ -481,7 +362,6 @@
           <Property Name="TelephoneNumber" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Order" Relationship="Model.FK_Order_Client" FromRole="Client" ToRole="Order" />
-          <NavigationProperty Name="Sale" Relationship="Model.FK_Sale_Client" FromRole="Client" ToRole="Sale" />
         </EntityType>
         <EntityType Name="Detail">
           <Key>
@@ -516,6 +396,10 @@
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Passport" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TelephoneNumber" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="IsWork" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Model.FK_Employee_Role" FromRole="Employee" ToRole="Role" />
           <NavigationProperty Name="Order" Relationship="Model.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
           <NavigationProperty Name="User" Relationship="Model.FK_User_Employee" FromRole="Employee" ToRole="User" />
@@ -535,30 +419,6 @@
           <NavigationProperty Name="Employee" Relationship="Model.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
           <NavigationProperty Name="ServiceOfOrder" Relationship="Model.FK_ServiceOfOrder_Order" FromRole="Order" ToRole="ServiceOfOrder" />
         </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="Descritpion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TypeOfProductId" Type="Int32" Nullable="false" />
-          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="TypeOfProduct" Relationship="Model.FK_Product_TypeOfProduct" FromRole="Product" ToRole="TypeOfProduct" />
-          <NavigationProperty Name="ProductOfSale" Relationship="Model.FK_ProductOfSale_Product" FromRole="Product" ToRole="ProductOfSale" />
-        </EntityType>
-        <EntityType Name="ProductOfSale">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="SaleId" Type="Int32" Nullable="false" />
-          <Property Name="Count" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_ProductOfSale_Product" FromRole="ProductOfSale" ToRole="Product" />
-          <NavigationProperty Name="Sale" Relationship="Model.FK_ProductOfSale_Sale" FromRole="ProductOfSale" ToRole="Sale" />
-        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
@@ -566,16 +426,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Employee" Relationship="Model.FK_Employee_Role" FromRole="Role" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="Sale">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateTimeOfSale" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ClientId" Type="Int32" />
-          <NavigationProperty Name="Client" Relationship="Model.FK_Sale_Client" FromRole="Sale" ToRole="Client" />
-          <NavigationProperty Name="ProductOfSale" Relationship="Model.FK_ProductOfSale_Sale" FromRole="Sale" ToRole="ProductOfSale" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -626,19 +476,11 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Detail" Relationship="Model.FK_Detail_TypeOfDetail" FromRole="TypeOfDetail" ToRole="Detail" />
         </EntityType>
-        <EntityType Name="TypeOfProduct">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_Product_TypeOfProduct" FromRole="TypeOfProduct" ToRole="Product" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Employee" Relationship="Model.FK_User_Employee" FromRole="User" ToRole="Employee" />
@@ -651,18 +493,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Order">
-              <PropertyRef Name="ClientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sale_Client">
-          <End Type="Model.Client" Role="Client" Multiplicity="0..1" />
-          <End Type="Model.Sale" Role="Sale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Sale">
               <PropertyRef Name="ClientId" />
             </Dependent>
           </ReferentialConstraint>
@@ -751,42 +581,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Product_TypeOfProduct">
-          <End Type="Model.TypeOfProduct" Role="TypeOfProduct" Multiplicity="1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeOfProduct">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="TypeOfProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductOfSale_Product">
-          <End Type="Model.Product" Role="Product" Multiplicity="1" />
-          <End Type="Model.ProductOfSale" Role="ProductOfSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductOfSale">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductOfSale_Sale">
-          <End Type="Model.Sale" Role="Sale" Multiplicity="1" />
-          <End Type="Model.ProductOfSale" Role="ProductOfSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sale">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductOfSale">
-              <PropertyRef Name="SaleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ServiceOfOrder_Service">
           <End Type="Model.Service" Role="Service" Multiplicity="1" />
           <End Type="Model.ServiceOfOrder" Role="ServiceOfOrder" Multiplicity="*" />
@@ -854,6 +648,10 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="Model.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="IsWork" ColumnName="IsWork" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -874,41 +672,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="Model.Product">
-              <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="TypeOfProductId" ColumnName="TypeOfProductId" />
-                <ScalarProperty Name="Descritpion" ColumnName="Descritpion" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductOfSale">
-            <EntityTypeMapping TypeName="Model.ProductOfSale">
-              <MappingFragment StoreEntitySet="ProductOfSale">
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="SaleId" ColumnName="SaleId" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="Model.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sale">
-            <EntityTypeMapping TypeName="Model.Sale">
-              <MappingFragment StoreEntitySet="Sale">
-                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
-                <ScalarProperty Name="DateTimeOfSale" ColumnName="DateTimeOfSale" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -956,14 +723,6 @@
           <EntitySetMapping Name="TypeOfDetail">
             <EntityTypeMapping TypeName="Model.TypeOfDetail">
               <MappingFragment StoreEntitySet="TypeOfDetail">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TypeOfProduct">
-            <EntityTypeMapping TypeName="Model.TypeOfProduct">
-              <MappingFragment StoreEntitySet="TypeOfProduct">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

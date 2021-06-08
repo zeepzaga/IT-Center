@@ -39,7 +39,7 @@ namespace IT_Center
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            TbDateTime.Text = $"{DateTime.Now:dd MMMM yyyy hh:mm}";
+            TbDateTime.Text = $"{DateTime.Now:dd MMMM yyyy HH:mm}";
         }
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)

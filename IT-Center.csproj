@@ -64,11 +64,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\ClientListPage.xaml.cs">
+      <DependentUpon>ClientListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WorkerListPage.xaml.cs">
+      <DependentUpon>WorkerListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddWorkerWindow.xaml.cs">
+      <DependentUpon>AddWorkerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CreateDetailWindow.xaml.cs">
       <DependentUpon>CreateDetailWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\CreateServiceWIndow.xaml.cs">
       <DependentUpon>CreateServiceWIndow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ClientWindow.xaml.cs">
+      <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\DetailOrderControl.xaml">
       <SubType>Designer</SubType>
@@ -135,16 +147,7 @@
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\OrderPartial.cs" />
-    <Compile Include="Entities\Product.cs">
-      <DependentUpon>DataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\ProductOfSale.cs">
-      <DependentUpon>DataBaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\Role.cs">
-      <DependentUpon>DataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Sale.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Service.cs">
@@ -162,9 +165,6 @@
     <Compile Include="Entities\TypeOfDetail.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\TypeOfProduct.cs">
-      <DependentUpon>DataBaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\User.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
@@ -173,6 +173,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AutorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ClientListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,11 +200,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\WorkerListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddWorkerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\CreateDetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CreateServiceWIndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -268,6 +284,7 @@
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
       <LastGenOutput>DataBaseModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\nullImageWorker.jpg" />
     <Resource Include="Resources\nullimg.png" />
   </ItemGroup>
   <ItemGroup>

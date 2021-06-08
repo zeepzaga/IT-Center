@@ -25,6 +25,10 @@ namespace IT_Center.Entities
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public int RoleId { get; set; }
+        public byte[] Photo { get; set; }
+        public string Passport { get; set; }
+        public string TelephoneNumber { get; set; }
+        public bool IsWork { get; set; }
     
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

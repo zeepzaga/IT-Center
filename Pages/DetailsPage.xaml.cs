@@ -34,6 +34,7 @@ namespace IT_Center.Pages
                  Name = "Все детали"
             });
             CbTypeOfDetail.ItemsSource = typeOfDetailsList;
+            CbTypeOfDetail.SelectedIndex = 0;
         }
 
         private void TbName_TextChanged(object sender, TextChangedEventArgs e)
@@ -64,7 +65,11 @@ namespace IT_Center.Pages
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateDetailWindow createDetailWindow = new CreateDetailWindow((sender as Button).DataContext as Detail);
+            createDetailWindow.ShowDialog();
+            AppData.Context.ChangeTracker.Entries<Detail>().ToList().ForEach(p => p.Reload());
+            detailsLIst = AppData.Context.Detail.ToList();
+            Update();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -80,16 +85,19 @@ namespace IT_Center.Pages
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 AppData.Context.DetailOfOrder.RemoveRange(
-                    AppData.Context.DetailOfOrder.Where(p => p.Detail == detail));
+                    AppData.Context.DetailOfOrder.ToList().Where(p => p.Detail == detail));
                 AppData.Context.Detail.Remove(detail);
                 AppData.Context.SaveChanges();
+                Update();
             }
         }
 
         private void BtnAddDetail_Click(object sender, RoutedEventArgs e)
         {
-            CreateDetailWindow createDetailWindow = new CreateDetailWindow();
+            CreateDetailWindow createDetailWindow = new CreateDetailWindow(null);
             createDetailWindow.ShowDialog();
+            AppData.Context.ChangeTracker.Entries<Detail>().ToList().ForEach(p => p.Reload());
+            detailsLIst = AppData.Context.Detail.ToList();
             Update();
         }
     }

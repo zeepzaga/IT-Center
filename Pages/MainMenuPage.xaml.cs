@@ -39,5 +39,16 @@ namespace IT_Center.Pages
         {
             NavigationService.Navigate(new DetailsPage());
         }
+
+        private void BtnWorkerList_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new WorkerListPage());
+        }
+
+
+        private void BtnClientList_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ClientListPage());
+        }
     }
 }

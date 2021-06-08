@@ -20,35 +20,37 @@
             <TextBlock Style="{StaticResource TbkBody}">Тип детали:</TextBlock>
             <ComboBox DisplayMemberPath="Name" Width="250" Name="CbTypeOfDetail" SelectionChanged="CbTypeOfDetail_SelectionChanged"></ComboBox>
         </StackPanel>
-        <ItemsControl Grid.Row="1" x:Name="IcDetails">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Border Margin="20" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Image Source="{Binding Photo, TargetNullValue={StaticResource NullImage}}" Margin="10" Height="150" Width="200"></Image>
-                            <StackPanel Margin="10" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Style="{StaticResource TbkBody}" Text="{Binding TypeOfDetail.Name}"></TextBlock>
-                                    <TextBlock Style="{StaticResource TbkBody}" Text="|"></TextBlock>
-                                    <TextBlock Style="{StaticResource TbkBody}" Text="{Binding Name}"></TextBlock>
-                                </StackPanel>
-                                <TextBox IsReadOnly="True" Text="{Binding Description}" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" 
+        <ScrollViewer Grid.Row="1" >
+            <ItemsControl x:Name="IcDetails">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="20" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Photo, TargetNullValue={StaticResource NullImage}}" Margin="10" Height="150" Width="200"></Image>
+                                <StackPanel Margin="10" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource TbkBody}" Text="{Binding TypeOfDetail.Name}"></TextBlock>
+                                        <TextBlock Style="{StaticResource TbkBody}" Text="|"></TextBlock>
+                                        <TextBlock Style="{StaticResource TbkBody}" Text="{Binding Name}"></TextBlock>
+                                    </StackPanel>
+                                    <TextBox IsReadOnly="True" Text="{Binding Description}" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" 
                             Height="100" Width="auto" VerticalScrollBarVisibility="Visible"></TextBox>
-                                <TextBlock Style="{StaticResource TbkBody}" Text="{Binding Price, StringFormat={}{0} р.}"></TextBlock>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Name="BtnEdit" Click="BtnEdit_Click" Style="{StaticResource BtnEdit}">Изменить</Button>
-                                    <Button Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource BtnCancel}">Удалить</Button>
+                                    <TextBlock Style="{StaticResource TbkBody}" Text="{Binding Price, StringFormat={}{0} р.}"></TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Name="BtnEdit" Click="BtnEdit_Click" Style="{StaticResource BtnEdit}">Изменить</Button>
+                                        <Button Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource BtnCancel}">Удалить</Button>
+                                    </StackPanel>
                                 </StackPanel>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
         <Button x:Name="BtnAddDetail" Click="BtnAddDetail_Click" Grid.Row="2" Width="250" HorizontalAlignment="Right">Добавить новую деталь</Button>
     </Grid>
 </Page>
