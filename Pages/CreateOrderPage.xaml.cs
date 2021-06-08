@@ -35,7 +35,7 @@ namespace IT_Center.Pages
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             string error = "";
-            if (!String.IsNullOrWhiteSpace(CbClient.Text)) error += "• Введите ФИО клиента!";
+            if (String.IsNullOrWhiteSpace(CbClient.Text)) error += "• Введите ФИО клиента!";
             if (detailsList.Count(p => p.CoutOnOrder != 0) == 0 && serviceList.Count == 0) error += "\n• В заказе должна быть как минимум 1 услуга или деталь!";
             if (error.Length != 0)
             {
@@ -85,6 +85,7 @@ namespace IT_Center.Pages
                 });
             }
             AppData.Context.SaveChanges();
+            NavigationService.GoBack();
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -98,16 +99,8 @@ namespace IT_Center.Pages
         private void BtnAddService_Click(object sender, RoutedEventArgs e)
         {
             var service = (sender as Button).DataContext as Service;
-            if (serviceList.FirstOrDefault(p => p == service) != null)
-            {
-                if (MessageBox.Show("Услуга уже есть  заказе\n Удалить её из заказа?", "Вопрос",
-                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                {
-                    serviceList.Remove(service);
-                }
-                return;
-            }
             serviceList.Add(service);
+            (sender as Button).Visibility = Visibility.Collapsed;
         }
 
         private void CbClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -128,6 +121,21 @@ namespace IT_Center.Pages
         private void TextBlock_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !char.IsDigit(e.Text, 0);
+        }
+
+        private void BtnRemoveService_Click(object sender, RoutedEventArgs e)
+        {
+            var service = (sender as Button).DataContext as Service;
+            if (serviceList.FirstOrDefault(p => p == service) != null)
+            {
+                serviceList.Remove(service);
+                foreach (var item in ((sender as Button).Parent as Grid).Children)
+                {
+                    if (item is Button btn)
+                        if (btn.Name == "BtnAddService")
+                            btn.Visibility = Visibility.Visible;
+                }       
+            }
         }
     }
 }

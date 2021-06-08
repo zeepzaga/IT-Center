@@ -45,7 +45,6 @@ namespace IT_Center.Controls
                 GridLine.Visibility = Visibility.Visible;
                 txt.Text = "\xE70E";
             }
-
         }
 
         private void ServiceInOrderControl_SelectionChanged(object sender, EventArgs e)
@@ -78,6 +77,7 @@ namespace IT_Center.Controls
             foreach (var item in ((sender as Button).DataContext as Order).ServiceOfOrder.ToList())
             {
                 item.ServiceOfOrderStatusId = 3;
+                AppData.Context.SaveChanges();
             }
             var buff = DataContext;
             DataContext = null;
@@ -89,6 +89,7 @@ namespace IT_Center.Controls
             foreach (var item in ((sender as Button).DataContext as Order).ServiceOfOrder.ToList())
             {
                 item.ServiceOfOrderStatusId = 2;
+                AppData.Context.SaveChanges();
             }
             var buff = DataContext;
             DataContext = null;

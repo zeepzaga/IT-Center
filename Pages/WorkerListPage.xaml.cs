@@ -24,6 +24,7 @@ namespace IT_Center.Pages
     {
         List<Employee> employeesList = new List<Employee>();
         List<Role> rolesList = new List<Role>();
+        bool onlyIsWork = true;
         public WorkerListPage()
         {
             InitializeComponent();
@@ -68,8 +69,8 @@ namespace IT_Center.Pages
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Уволить работника?","Вопрос",
-                MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Уволить работника?", "Вопрос",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 ((sender as Button).DataContext as Employee).IsWork = false;
                 AppData.Context.SaveChanges();
@@ -83,8 +84,22 @@ namespace IT_Center.Pages
             list = list.Where(p => p.FullName.ToLower().Contains(TbName.Text.ToLower())).ToList();
             if (CbRole.SelectedIndex > 0)
                 list = list.Where(p => p.Role == CbRole.SelectedItem as Role).ToList();
+            if (onlyIsWork)
+                list = list.Where(p => p.IsWork == true).ToList();
             IcDetails.ItemsSource = null;
             IcDetails.ItemsSource = list;
+        }
+
+        private void ChbIsWork_Checked(object sender, RoutedEventArgs e)
+        {
+            onlyIsWork = true;
+            Update();
+        }
+
+        private void ChbIsWork_Unchecked(object sender, RoutedEventArgs e)
+        {
+            onlyIsWork = false;
+            Update();
         }
     }
 }

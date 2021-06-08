@@ -44,7 +44,10 @@
                                             <TextBlock TextWrapping="Wrap" Style="{StaticResource TbkBody}" Text="{Binding Name}"></TextBlock>
                                             <TextBlock Margin="5 0 5 5" Style="{StaticResource TbkBody}" Text="{Binding Price, StringFormat={}{0} р.}"></TextBlock>
                                         </StackPanel>
-                                        <Button x:Name="BtnAddService" Click="BtnAddService_Click" Margin="10 5" Grid.Column="1" VerticalAlignment="Center" Width="30">+</Button>
+                                        <Grid Grid.Column="1" VerticalAlignment="Center" >
+                                            <Button x:Name="BtnRemoveService" Click="BtnRemoveService_Click" Margin="10 5" VerticalAlignment="Center" Width="30" Style="{StaticResource BtnCancel}">-</Button>
+                                            <Button x:Name="BtnAddService" Click="BtnAddService_Click" Margin="10 5" VerticalAlignment="Center" Width="30">+</Button>
+                                        </Grid>
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>

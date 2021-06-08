@@ -19,6 +19,7 @@
             <TextBox x:Name="TbName" Width="250" TextChanged="TbName_TextChanged"></TextBox>
             <TextBlock Style="{StaticResource TbkBody}">Должность:</TextBlock>
             <ComboBox DisplayMemberPath="Name" Width="250" Name="CbRole" SelectionChanged="CbRole_SelectionChanged"></ComboBox>
+            <CheckBox x:Name="ChbIsWork" Checked="ChbIsWork_Checked" Unchecked="ChbIsWork_Unchecked">Показать уволенных работников</CheckBox>
         </StackPanel>
         <ScrollViewer Grid.Row="1" >
             <ItemsControl x:Name="IcDetails">

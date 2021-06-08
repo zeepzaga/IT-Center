@@ -57,6 +57,8 @@ namespace IT_Center.Entities
                     ServiceOfOrder serviceOfOrder = ServiceOfOrder.OrderByDescending(p => p.DateTimeEnd).FirstOrDefault();
                     if (serviceOfOrder != null)
                         DateTimeOfEnd = serviceOfOrder.DateTimeEnd;
+                    else
+                        DateTimeOfEnd = DateTimeOfCreate;
                     return "Отменён";
                 }
                 else
@@ -64,6 +66,8 @@ namespace IT_Center.Entities
                     ServiceOfOrder serviceOfOrder = ServiceOfOrder.OrderByDescending(p => p.DateTimeEnd).FirstOrDefault();
                     if (serviceOfOrder != null)
                         DateTimeOfEnd = serviceOfOrder.DateTimeEnd;
+                    else
+                        DateTimeOfEnd = DateTimeOfCreate;
                     return "Выполнен";
                 }
             }

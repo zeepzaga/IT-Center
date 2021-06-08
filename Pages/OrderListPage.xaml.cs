@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IT_Center.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,8 +28,13 @@ namespace IT_Center.Pages
         }
         private void Update()
         {
-            IcOrders.ItemsSource = AppData.Context.Order.ToList()
-                .Where(p => p.OrderNumber.Contains(TbName.Text)).OrderByDescending(p=>p.DateTimeOfCreate).ToList();
+            IcOrders.ItemsSource = null;
+            if (AppData.currentEmployee.RoleId != 1)
+                IcOrders.ItemsSource = AppData.Context.Order.ToList()
+                    .Where(p => p.Employee == AppData.currentEmployee && p.OrderNumber.Contains(TbName.Text)).OrderByDescending(p => p.DateTimeOfCreate).ToList();
+            else
+                IcOrders.ItemsSource = AppData.Context.Order.ToList()
+                   .Where(p => p.OrderNumber.Contains(TbName.Text)).OrderByDescending(p => p.DateTimeOfCreate).ToList();
         }
         private void BtnCreateOrder_Click(object sender, RoutedEventArgs e)
         {
@@ -37,6 +43,7 @@ namespace IT_Center.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            AppData.Context.ChangeTracker.Entries<Order>().ToList().ForEach(p => p.Reload());
             Update();
         }
 
