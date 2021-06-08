@@ -23,6 +23,26 @@ namespace IT_Center.Controls
         public OrderControl()
         {
             InitializeComponent();
+            MainGrid.RowDefinitions[2].Height = new GridLength(0, GridUnitType.Pixel);
+            GridLine.Visibility = Visibility.Collapsed;
+        }
+
+        private void TblExpand_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var txt = sender as TextBlock;
+            if (txt.Text == "\xE70E")
+            {
+                MainGrid.RowDefinitions[2].Height = new GridLength(0, GridUnitType.Pixel);
+                GridLine.Visibility = Visibility.Collapsed;
+                txt.Text = "\xE70D";
+            }
+            else
+            {
+                MainGrid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
+                GridLine.Visibility = Visibility.Visible;
+                txt.Text = "\xE70E";
+            }
+            
         }
     }
 }

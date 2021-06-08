@@ -16,28 +16,23 @@ using System.Windows.Shapes;
 namespace IT_Center.Pages
 {
     /// <summary>
-    /// Interaction logic for MainMenuPage.xaml
+    /// Interaction logic for OrderListPage.xaml
     /// </summary>
-    public partial class MainMenuPage : Page
+    public partial class OrderListPage : Page
     {
-        public MainMenuPage()
+        public OrderListPage()
         {
             InitializeComponent();
         }
 
-        private void BtnOrderList_Click(object sender, RoutedEventArgs e)
+        private void BtnCreateOrder_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new OrderListPage());
+            NavigationService.Navigate(new CreateOrderPage());
         }
 
-        private void BtnService_Click(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ServicePage());
-        }
-
-        private void BtnDetailsPage_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new DetailsPage());
+            IcOrders.ItemsSource = AppData.Context.Order.ToList();
         }
     }
 }

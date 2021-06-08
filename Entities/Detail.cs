@@ -17,7 +17,7 @@ namespace IT_Center.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Detail()
         {
-            this.Order = new HashSet<Order>();
+            this.DetailOfOrder = new HashSet<DetailOfOrder>();
         }
     
         public int Id { get; set; }
@@ -29,6 +29,6 @@ namespace IT_Center.Entities
     
         public virtual TypeOfDetail TypeOfDetail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<DetailOfOrder> DetailOfOrder { get; set; }
     }
 }

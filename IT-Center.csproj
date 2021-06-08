@@ -64,7 +64,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\DetailOrderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\OrderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ServiceInOrderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -77,12 +85,19 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AppData.cs" />
+    <Compile Include="Controls\DetailOrderControl.xaml.cs">
+      <DependentUpon>DetailOrderControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\OrderControl.xaml.cs">
       <DependentUpon>OrderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ServiceInOrderControl.xaml.cs">
+      <DependentUpon>ServiceInOrderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Entities\Client.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ClientPartialClass.cs" />
     <Compile Include="Entities\DataBaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,12 +116,19 @@
     <Compile Include="Entities\Detail.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DetailOfOrder.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DetailOfOrderPartial.cs" />
+    <Compile Include="Entities\DetailPartial.cs" />
     <Compile Include="Entities\Employee.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\EmployeePartial.cs" />
     <Compile Include="Entities\Order.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\OrderPartial.cs" />
     <Compile Include="Entities\Product.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
@@ -148,7 +170,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CreateOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrderListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ServicePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,8 +195,20 @@
     <Compile Include="Pages\AutorizationPage.xaml.cs">
       <DependentUpon>AutorizationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CreateOrderPage.xaml.cs">
+      <DependentUpon>CreateOrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DetailsPage.xaml.cs">
+      <DependentUpon>DetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderListPage.xaml.cs">
+      <DependentUpon>OrderListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ServicePage.xaml.cs">
+      <DependentUpon>ServicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -204,6 +254,7 @@
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
       <LastGenOutput>DataBaseModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\nullimg.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

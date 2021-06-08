@@ -6,14 +6,17 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:IT_Center"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="900" MinHeight="550" MinWidth="900">
+        Title="MainWindow" WindowState="Maximized" WindowStyle="None" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Background="{StaticResource PColor_First}">
+        <Grid Grid.Row="2" Background="{StaticResource PColor_First}">
+            <TextBlock Style="{StaticResource TbkBody}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Name="TblFio"></TextBlock>
             <TextBlock MouseLeftButtonDown="TblBack_MouseLeftButtonDown" x:Name="TblBack" Foreground="White" HorizontalAlignment="Left" FontSize="20" Style="{StaticResource TbkTriggered}" FontFamily="Segoe MDL2 Assets" Text="&#xE830;" RenderTransformOrigin="0.5,0.5"></TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Style="{StaticResource TbkBody}" Margin="10 5" Foreground="White" FontSize="20">IT-Сервис</TextBlock>
@@ -32,9 +35,16 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <Frame ContentRendered="MainFrame_ContentRendered" Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
-        <Grid Grid.Row="2" Background="{StaticResource PColor_Third}">
+        <Frame ContentRendered="MainFrame_ContentRendered" Grid.Row="3" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+        <Grid Grid.Row="4" Background="{StaticResource PColor_Third}">
             <TextBlock  x:Name="TbDateTime" Style="{StaticResource TbkBody}" FontSize="20" HorizontalAlignment="Right" Foreground="White"></TextBlock>
         </Grid>
+        <Grid Background="{StaticResource PColor_Second}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock FontSize="23" Foreground="Blue" FontFamily="Segoe UI" FontWeight="Bold" Name="TblMinim" MouseLeftButtonDown="TblMinim_MouseLeftButtonDown" Style="{StaticResource TbkTriggered}"  Text="—"></TextBlock>
+                <TextBlock Margin="12 5" FontSize="23" Foreground="DarkRed" Name="TblAppExit" MouseLeftButtonDown="TblAppExit_MouseLeftButtonDown" Style="{StaticResource TbkTriggered}" FontFamily="Segoe MDL2 Assets" Text="&#xE711;"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Height="3" VerticalAlignment="Center" Grid.Row="1" Background="Black"></Grid>
     </Grid>
 </Window>

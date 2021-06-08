@@ -48,7 +48,7 @@
 
         <!--#region Images-->
 
-        <BitmapImage x:Key="NullImage" UriSource="/Resources/Logos/logo.png"/>
+        <BitmapImage x:Key="NullImage" UriSource="\Resources\nullimg.png"/>
 
         <Style TargetType="{x:Type Image}">
             <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>

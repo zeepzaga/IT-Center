@@ -24,5 +24,20 @@ namespace IT_Center.Pages
         {
             InitializeComponent();
         }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Entities.User user = AppData.Context.User.ToList().FirstOrDefault(p => p.Login == TbLogin.Text
+                           && p.Password == PbPassword.Password);
+            if (user != null)
+            {
+                AppData.currentEmployee = AppData.Context.Employee.ToList().FirstOrDefault(p => p.Id == user.Id);
+                NavigationService.Navigate(new MainMenuPage());
+            }
+            else
+            {
+                MessageBox.Show("Не верный логин или пароль!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

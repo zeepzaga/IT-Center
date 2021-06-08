@@ -12,16 +12,14 @@ namespace IT_Center.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class ServiceOfOrder
+    public partial class DetailOfOrder
     {
         public int OrderId { get; set; }
-        public int ServiceId { get; set; }
+        public int DetailId { get; set; }
+        public int Count { get; set; }
         public int Id { get; set; }
-        public int ServiceOfOrderStatusId { get; set; }
-        public Nullable<System.DateTime> DateTimeEnd { get; set; }
     
+        public virtual Detail Detail { get; set; }
         public virtual Order Order { get; set; }
-        public virtual Service Service { get; set; }
-        public virtual ServiceOfOrderStatus ServiceOfOrderStatus { get; set; }
     }
 }

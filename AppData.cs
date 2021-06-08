@@ -10,5 +10,6 @@ namespace IT_Center
     public class AppData
     {
         public static ITCenterEntities Context = new ITCenterEntities();
+        public static Employee currentEmployee;
     }
 }

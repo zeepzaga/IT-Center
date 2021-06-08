@@ -32,9 +32,9 @@ namespace IT_Center
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
-            TbDateTime.Text = $"{DateTime.Now:dd MMMM yyyy hh:mm}";
+            TbDateTime.Text = $"{DateTime.Now:dd MMMM yyyy HH:mm}";
             dispatcherTimer.Start();
-            MainFrame.Navigate(new MainMenuPage());
+            MainFrame.Navigate(new AutorizationPage());
         }
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
@@ -57,6 +57,10 @@ namespace IT_Center
                 GridLine.Visibility = Visibility.Visible;
                 TblBack.Visibility = Visibility.Visible;
             }
+            if (AppData.currentEmployee != null)
+            {
+                TblFio.Text = AppData.currentEmployee.FullName;
+            }
 
         }
 
@@ -74,10 +78,20 @@ namespace IT_Center
 
         private void TblLogout_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if(MessageBox.Show("Выйти из аккаунта?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Выйти из аккаунта?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 MainFrame.Navigate(new AutorizationPage());
             }
+        }
+
+        private void TblAppExit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.Current.MainWindow.Close();
+        }
+
+        private void TblMinim_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.Current.MainWindow.WindowState = WindowState.Minimized;
         }
     }
 }

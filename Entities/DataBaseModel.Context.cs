@@ -27,6 +27,7 @@ namespace IT_Center.Entities
     
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Detail> Detail { get; set; }
+        public virtual DbSet<DetailOfOrder> DetailOfOrder { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Product> Product { get; set; }

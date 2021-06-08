@@ -17,21 +17,22 @@ namespace IT_Center.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
+            this.DetailOfOrder = new HashSet<DetailOfOrder>();
             this.ServiceOfOrder = new HashSet<ServiceOfOrder>();
-            this.Detail = new HashSet<Detail>();
         }
     
         public int Id { get; set; }
         public System.DateTime DateTimeOfCreate { get; set; }
-        public System.DateTime DateTimeOfEnd { get; set; }
+        public Nullable<System.DateTime> DateTimeOfEnd { get; set; }
         public int ClientId { get; set; }
         public int EmployeeId { get; set; }
+        public string Description { get; set; }
     
         public virtual Client Client { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetailOfOrder> DetailOfOrder { get; set; }
         public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceOfOrder> ServiceOfOrder { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detail> Detail { get; set; }
     }
 }

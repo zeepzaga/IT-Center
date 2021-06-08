@@ -12,10 +12,10 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" FontSize="30">Авторизация</TextBlock>
             <TextBlock Margin="5 0" Style="{StaticResource TbkBody}">Логин:</TextBlock>
-            <TextBox Width="200"></TextBox>
+            <TextBox x:Name="TbLogin" Width="200"></TextBox>
             <TextBlock Margin="5 0" Style="{StaticResource TbkBody}">Пароль:</TextBlock>
-            <PasswordBox  Width="200"></PasswordBox>
-            <Button HorizontalAlignment="Stretch" Width="auto">Войти</Button>
+            <PasswordBox Name="PbPassword" Width="200"></PasswordBox>
+            <Button HorizontalAlignment="Stretch" Name="BtnLogin" Click="BtnLogin_Click" Width="auto">Войти</Button>
         </StackPanel>
     </Grid>
 </Page>
