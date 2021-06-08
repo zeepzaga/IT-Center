@@ -28,6 +28,7 @@ namespace IT_Center.Windows
         {
             InitializeComponent();
             CbRole.ItemsSource = AppData.Context.Role.ToList();
+            _employee = employee;
             if (employee != null)
             {
                 photo = employee.Photo;
@@ -73,8 +74,9 @@ namespace IT_Center.Windows
             }
             else
             {
-                AppData.Context.SaveChanges();
                 _employee.Role = CbRole.SelectedItem as Role;
+                _employee.Photo = photo;
+                AppData.Context.SaveChanges();
             }
             Close();
         }

@@ -72,7 +72,9 @@ namespace IT_Center.Pages
                 MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 ((sender as Button).DataContext as Employee).IsWork = false;
+                AppData.Context.SaveChanges();
             }
+            Update();
         }
 
         private void Update()

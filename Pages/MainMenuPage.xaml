@@ -11,13 +11,13 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button x:Name="BtnOrderList" Click="BtnOrderList_Click" Height="100" Width="100">Заказы</Button>
-                <Button x:Name="BtnService" Click="BtnService_Click" Height="100" Width="100">Услуги</Button>
+                <Button FontSize="24" x:Name="BtnOrderList" Click="BtnOrderList_Click" Height="150" Width="150">Заказы</Button>
+                <Button FontSize="24" x:Name="BtnService" Click="BtnService_Click" Height="150" Width="150">Услуги</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="BtnDetailsPage" Click="BtnDetailsPage_Click" Height="100" Width="100">Детали</Button>
-                <Button x:Name="BtnWorkerList" Click="BtnWorkerList_Click" Height="100" Width="100">Работники</Button>
-                <Button x:Name="BtnClientList" Click="BtnClientList_Click" Height="100" Width="100">Клиенты</Button>
+                <Button FontSize="24" x:Name="BtnDetailsPage" Click="BtnDetailsPage_Click" Height="150" Width="150">Детали</Button>
+                <Button FontSize="24" x:Name="BtnWorkerList" Click="BtnWorkerList_Click" Height="150" Width="150">Работники</Button>
+                <Button FontSize="24" x:Name="BtnClientList" Click="BtnClientList_Click" Height="150" Width="150">Клиенты</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

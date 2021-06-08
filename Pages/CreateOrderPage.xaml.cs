@@ -34,6 +34,14 @@ namespace IT_Center.Pages
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            string error = "";
+            if (!String.IsNullOrWhiteSpace(CbClient.Text)) error += "• Введите ФИО клиента!";
+            if (detailsList.Count(p => p.CoutOnOrder != 0) == 0 && serviceList.Count == 0) error += "\n• В заказе должна быть как минимум 1 услуга или деталь!";
+            if (error.Length != 0)
+            {
+                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             Client client = AppData.Context.Client.ToList().FirstOrDefault(p => p.FullName == CbClient.Text
                             && p.TelephoneNumber == TbTelephoneNumber.Text);
             if (client == null)
@@ -115,6 +123,11 @@ namespace IT_Center.Pages
                 TbTelephoneNumber.Text = null;
                 TbEmail.Text = null;
             }
+        }
+
+        private void TextBlock_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.Text, 0);
         }
     }
 }

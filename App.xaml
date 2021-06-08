@@ -14,7 +14,7 @@
         <SolidColorBrush Color="White" x:Key="PColor_White"/>
         <SolidColorBrush Color="Black" x:Key="PColor_Black"/>
         <SolidColorBrush Color="Transparent" x:Key="PColor_Transparent"/>
-
+        
         <!--#endregion-->
 
         <!--#region Secondary colors-->

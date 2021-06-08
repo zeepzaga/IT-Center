@@ -61,6 +61,10 @@ namespace IT_Center
             {
                 TblFio.Text = AppData.currentEmployee.FullName;
             }
+            else
+            {
+                TblFio.Text = "";
+            }
 
         }
 
@@ -80,6 +84,7 @@ namespace IT_Center
         {
             if (MessageBox.Show("Выйти из аккаунта?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
+                AppData.currentEmployee = null;
                 MainFrame.Navigate(new AutorizationPage());
             }
         }

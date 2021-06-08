@@ -1,4 +1,5 @@
 ﻿using IT_Center.Entities;
+using IT_Center.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,12 @@ namespace IT_Center.Controls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             order = DataContext as Order;
+        }
+
+        private void BtnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            PrintWindow printWindow = new PrintWindow((sender as Button).DataContext as Order);
+            printWindow.ShowDialog();
         }
     }
 }

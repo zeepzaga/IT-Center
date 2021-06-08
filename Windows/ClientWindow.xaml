@@ -11,23 +11,23 @@
             <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" FontSize="28" Name="TbTitle">Добавление клиента</TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Фамилия:</TextBlock>
-                <TextBox Text="{Binding LastName}" Width="180" x:Name="TbLastName"></TextBox>
+                <TextBox Text="{Binding LastName}" MaxLength="50" Width="180" x:Name="TbLastName"></TextBox>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Имя:</TextBlock>
-                <TextBox Text="{Binding FirstName}" Width="180" x:Name="TbName"></TextBox>
+                <TextBox Text="{Binding FIrstName}" MaxLength="50" Width="180" x:Name="TbName"></TextBox>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Отчество:</TextBlock>
-                <TextBox Text="{Binding MiddleName}" Width="180" x:Name="TbMiddleName"></TextBox>
+                <TextBox Text="{Binding MiddleName}" MaxLength="50" Width="180" x:Name="TbMiddleName"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Email:</TextBlock>
-                <TextBox Text="{Binding Email}" x:Name="TbEmail" Width="180"></TextBox>
+                <TextBox Text="{Binding Email}" MaxLength="50" x:Name="TbEmail" Width="180"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock VerticalAlignment="Top" FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Номер телефона:</TextBlock>
-                <TextBox Text="{Binding TelephoneNumber}" x:Name="TbTelephoneNumber" Width="180"></TextBox>
+                <TextBox Text="{Binding TelephoneNumber}" MaxLength="13" x:Name="TbTelephoneNumber" Width="180" PreviewTextInput="TextBox_PreviewTextInput"></TextBox>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Click="BtnCancel_Click" Style="{StaticResource BtnCancel}" Name="BtnCancel">Отмена</Button>

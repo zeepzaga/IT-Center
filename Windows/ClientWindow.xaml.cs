@@ -34,13 +34,25 @@ namespace IT_Center.Windows
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            if(!String.IsNullOrWhiteSpace(TbName.Text) || !String.IsNullOrWhiteSpace(TbLastName.Text))
+            {
+                MessageBox.Show("Имя и фамилия обязательны для заполнения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (_client != null)
             {
                 AppData.Context.SaveChanges();
             }
             else
             {
-                AppData.Context.Client.Add(DataContext as Client);
+                AppData.Context.Client.Add(new Client
+                {
+                    FIrstName = TbName.Text,
+                    Email = TbEmail.Text,
+                    LastName = TbLastName.Text,
+                    MiddleName = TbMiddleName.Text,
+                    TelephoneNumber = TbTelephoneNumber.Text
+                });
                 AppData.Context.SaveChanges();
             }
             Close();
@@ -52,6 +64,11 @@ namespace IT_Center.Windows
             {
                 Close();
             }
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.Text, 0);
         }
     }
 }

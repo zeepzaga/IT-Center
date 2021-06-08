@@ -22,9 +22,14 @@
         </StackPanel>
         <ScrollViewer Grid.Row="1" >
             <ItemsControl x:Name="IcDetails">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border Margin="20" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+                        <Border Margin="10" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="0.3*"></ColumnDefinition>
@@ -32,7 +37,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Ellipse  Margin="10" Height="250" Width="250">
                                     <Ellipse.Fill>
-                                        <ImageBrush ImageSource="{Binding Photo, TargetNullValue={StaticResource NullImageWorker}}" ></ImageBrush>
+                                        <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill" ImageSource="{Binding Photo, TargetNullValue={StaticResource NullImageWorker}}" ></ImageBrush>
                                     </Ellipse.Fill>
                                 </Ellipse>
                                 <StackPanel Margin="10" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">

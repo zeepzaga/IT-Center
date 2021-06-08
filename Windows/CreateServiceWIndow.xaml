@@ -15,7 +15,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Style="{StaticResource TbkBody}">Цена:</TextBlock>
-                <TextBox Text="{Binding Price}" Name="TbPrice" Width="250"></TextBox>
+                <TextBox PreviewTextInput="TbPrice_PreviewTextInput" Text="{Binding Price}" Name="TbPrice" Width="250"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock VerticalAlignment="Top" Style="{StaticResource TbkBody}">Описание:</TextBlock>

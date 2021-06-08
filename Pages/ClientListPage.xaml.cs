@@ -25,6 +25,7 @@ namespace IT_Center.Pages
         public ClientListPage()
         {
             InitializeComponent();
+            Update();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -51,6 +52,14 @@ namespace IT_Center.Pages
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Update();
+        }
+
+        private void BtnAddClient_Click(object sender, RoutedEventArgs e)
+        {
+            CleintWindow cleintWindow = new CleintWindow(null);
+            cleintWindow.ShowDialog();
+            AppData.Context.ChangeTracker.Entries<Employee>().ToList().ForEach(p => p.Reload());
             Update();
         }
     }

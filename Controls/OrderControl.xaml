@@ -91,7 +91,7 @@
             </Grid>
             <Grid Height="1" Margin="20 0" Background="Black" Grid.Row="3"></Grid>
                 <StackPanel Margin="15" Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal">
-                    <Button>Печать</Button>
+                    <Button x:Name="BtnPrint" Click="BtnPrint_Click">Печать</Button>
                 </StackPanel>
         </Grid>
     </Border>

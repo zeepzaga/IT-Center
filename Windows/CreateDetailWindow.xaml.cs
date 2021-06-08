@@ -58,6 +58,11 @@ namespace IT_Center.Windows
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            if(!String.IsNullOrWhiteSpace(TbDetailName.Text) || CbTypeOfDetail.SelectedIndex < 0)
+            {
+                MessageBox.Show("Название и тип детали обязательны для заполнения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             TypeOfDetail typeOfDetail = new TypeOfDetail();
             typeOfDetail = AppData.Context.TypeOfDetail.ToList().FirstOrDefault(p => p.Name.ToLower() == CbTypeOfDetail.Text.ToLower());
             if (typeOfDetail == null)
@@ -87,6 +92,11 @@ namespace IT_Center.Windows
                 MessageBox.Show("Деталь добавлена в БД", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             Close();
+        }
+
+        private void TbPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.Text, 0);
         }
     }
 }

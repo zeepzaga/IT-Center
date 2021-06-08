@@ -14,7 +14,7 @@
                     <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" FontSize="24">Основная информация</TextBlock>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Название детали:</TextBlock>
-                        <TextBox Text="{Binding Name}" Width="180" x:Name="TbDetailName"></TextBox>
+                        <TextBox MaxLength="50" Text="{Binding Name}" Width="180" x:Name="TbDetailName"></TextBox>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                         <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Тип детали:</TextBlock>
@@ -22,7 +22,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Цена:</TextBlock>
-                        <TextBox Text="{Binding Price}" x:Name="TbPrice" Width="180"></TextBox>
+                        <TextBox PreviewTextInput="TbPrice_PreviewTextInput" Text="{Binding Price, TargetNullValue=0}" x:Name="TbPrice" Width="180"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock VerticalAlignment="Top" FontFamily="Segoe UI" FontWeight="Bold" Style="{StaticResource TbkBody}">Описание:</TextBlock>

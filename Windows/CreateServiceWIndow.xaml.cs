@@ -42,6 +42,11 @@ namespace IT_Center.Windows
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            if (!String.IsNullOrWhiteSpace(TbName.Text))
+            {
+                MessageBox.Show("Введите название для услуги!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (_service != null)
             {
                 AppData.Context.SaveChanges();
@@ -63,6 +68,11 @@ namespace IT_Center.Windows
 
         private void Window_Unloaded(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void TbPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.Text, 0);
         }
     }
 }

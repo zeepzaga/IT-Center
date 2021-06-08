@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <TextBlock Style="{StaticResource TbkBody}">Поиск:</TextBlock>
@@ -19,9 +20,9 @@
         </StackPanel>
         <DataGrid Grid.Row="1" x:Name="DgService" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Binding="{Binding Name}" Header="ФИО"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding Price, StringFormat={}{0} р.}" Header="Номер телефона"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding Description}" Header="Email"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding FullName}" Header="ФИО"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding TelephoneNumber}" Header="Номер телефона"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding Email}" Header="Email"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -38,5 +39,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.Row="2" HorizontalAlignment="Right" Name="BtnAddClient" Click="BtnAddClient_Click">Добавить клиента</Button>
     </Grid>
 </Page>
