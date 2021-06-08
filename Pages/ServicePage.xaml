@@ -9,7 +9,16 @@
       Title="ServicePage">
 
     <Grid>
-        <DataGrid x:Name="DgService" AutoGenerateColumns="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource TbkBody}">Поиск:</TextBlock>
+            <TextBox x:Name="TbName" TextChanged="TbName_TextChanged" Width="250"></TextBox>
+        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="DgService" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Binding="{Binding Name}" Header="Название услуги"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Binding="{Binding Price, StringFormat={}{0} р.}" Header="Цена"></DataGridTextColumn>
@@ -24,11 +33,12 @@
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Width="auto" x:Name="BtnDelete" Click="BtnDelete_Click">Удалить</Button>
+                            <Button Style="{StaticResource BtnCancel}" Width="auto" x:Name="BtnDelete" Click="BtnDelete_Click">Удалить</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.Row="2" HorizontalAlignment="Right" Name="BtnService" Click="BtnService_Click">Добавить услугу</Button>
     </Grid>
 </Page>

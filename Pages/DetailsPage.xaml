@@ -6,10 +6,21 @@
       xmlns:local="clr-namespace:IT_Center.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="DetailsPage">
+      Title="DetailsPage" Loaded="Page_Loaded">
 
     <Grid>
-        <ItemsControl x:Name="IcDetails">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource TbkBody}">Поиск:</TextBlock>
+            <TextBox x:Name="TbName" Width="250" TextChanged="TbName_TextChanged"></TextBox>
+            <TextBlock Style="{StaticResource TbkBody}">Тип детали:</TextBlock>
+            <ComboBox DisplayMemberPath="Name" Width="250" Name="CbTypeOfDetail" SelectionChanged="CbTypeOfDetail_SelectionChanged"></ComboBox>
+        </StackPanel>
+        <ItemsControl Grid.Row="1" x:Name="IcDetails">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="20" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
@@ -28,11 +39,16 @@
                                 <TextBox IsReadOnly="True" Text="{Binding Description}" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" 
                             Height="100" Width="auto" VerticalScrollBarVisibility="Visible"></TextBox>
                                 <TextBlock Style="{StaticResource TbkBody}" Text="{Binding Price, StringFormat={}{0} р.}"></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Name="BtnEdit" Click="BtnEdit_Click" Style="{StaticResource BtnEdit}">Изменить</Button>
+                                    <Button Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource BtnCancel}">Удалить</Button>
+                                </StackPanel>
                             </StackPanel>
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        <Button x:Name="BtnAddDetail" Click="BtnAddDetail_Click" Grid.Row="2" Width="250" HorizontalAlignment="Right">Добавить новую деталь</Button>
     </Grid>
 </Page>

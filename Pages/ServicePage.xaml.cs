@@ -1,4 +1,5 @@
 ﻿using IT_Center.Entities;
+using IT_Center.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace IT_Center.Pages
         public ServicePage()
         {
             InitializeComponent();
-            DgService.ItemsSource = AppData.Context.Service.ToList();
+            Update();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -35,7 +36,8 @@ namespace IT_Center.Pages
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             var service = (sender as Button).DataContext as Service;
-            if (AppData.Context.ServiceOfOrder.ToList().Count(p => p.ServiceOfOrderStatusId == 1) != 0)
+            if (AppData.Context.ServiceOfOrder.ToList().Count(p => p.ServiceOfOrderStatusId == 1
+            && p.Service == service) != 0)
             {
                 MessageBox.Show("Невозможно удалить услугу, которая выполняется", "Ошибка", MessageBoxButton.YesNo, MessageBoxImage.Error);
                 return;
@@ -48,6 +50,23 @@ namespace IT_Center.Pages
                 AppData.Context.Service.Remove(service);
                 AppData.Context.SaveChanges();
             }
+        }
+        private void Update()
+        {
+            DgService.ItemsSource = null;
+            DgService.ItemsSource = AppData.Context.Service.ToList().Where(p=>p.Name.ToLower().Contains(TbName.Text.ToLower()));
+        }
+
+        private void TbName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Update();
+        }
+
+        private void BtnService_Click(object sender, RoutedEventArgs e)
+        {
+            CreateServiceWIndow createServiceWIndow = new CreateServiceWIndow();
+            createServiceWIndow.ShowDialog();
+            Update();
         }
     }
 }

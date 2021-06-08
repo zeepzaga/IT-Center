@@ -1,0 +1,30 @@
+﻿<Window x:Class="IT_Center.Windows.CreateServiceWIndow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IT_Center.Windows"
+        mc:Ignorable="d"
+        Title="" Height="450" Width="800" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" FontSize="28" Name="TbTitle">Добавление услуги</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource TbkBody}">Название услуги:</TextBlock>
+                <TextBox Width="250"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Style="{StaticResource TbkBody}">Цена:</TextBlock>
+                <TextBox Width="250"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Top" Style="{StaticResource TbkBody}">Описание:</TextBlock>
+                <TextBox Height="100" Width="250"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="BtnCancel" Click="BtnCancel_Click" Style="{StaticResource BtnCancel}">Отмена</Button>
+                <Button x:Name="BtnSave" Click="BtnSave_Click">Сохранить</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
