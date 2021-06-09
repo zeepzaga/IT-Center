@@ -33,7 +33,7 @@ namespace IT_Center.Pages
             {
                 Name = "Все должности"
             });
-            CbRole.ItemsSource = AppData.Context.Role.ToList();
+            CbRole.ItemsSource = rolesList;
             CbRole.SelectedIndex = 0;
             employeesList = AppData.Context.Employee.ToList();
             Update();
@@ -92,13 +92,13 @@ namespace IT_Center.Pages
 
         private void ChbIsWork_Checked(object sender, RoutedEventArgs e)
         {
-            onlyIsWork = true;
+            onlyIsWork = false;
             Update();
         }
 
         private void ChbIsWork_Unchecked(object sender, RoutedEventArgs e)
         {
-            onlyIsWork = false;
+            onlyIsWork = true;
             Update();
         }
     }

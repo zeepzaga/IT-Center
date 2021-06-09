@@ -75,6 +75,7 @@ namespace IT_Center.Windows
             if (_detail != null)
             {
                 _detail.TypeOfDetail = typeOfDetail;
+                _detail.Photo = photo;
                 AppData.Context.SaveChanges();
                 MessageBox.Show("Информация о детали отредактирована в БД", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
             }

@@ -18,7 +18,7 @@
             <TextBlock Style="{StaticResource TbkBody}">Поиск:</TextBlock>
             <TextBox TextChanged="TextBox_TextChanged" Name="TbName" Width="250"></TextBox>
         </StackPanel>
-        <DataGrid Grid.Row="1" x:Name="DgService" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" x:Name="DgService" AutoGenerateColumns="False" SelectionChanged="DgService_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Binding="{Binding FullName}" Header="ФИО"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Binding="{Binding TelephoneNumber}" Header="Номер телефона"></DataGridTextColumn>

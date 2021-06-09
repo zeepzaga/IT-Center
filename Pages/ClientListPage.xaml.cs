@@ -62,5 +62,10 @@ namespace IT_Center.Pages
             AppData.Context.ChangeTracker.Entries<Employee>().ToList().ForEach(p => p.Reload());
             Update();
         }
+
+        private void DgService_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -94,7 +94,7 @@
             <StackPanel Margin="15" Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button x:Name="BtnCancelOrder" Click="BtnCancelOrder_Click" Style="{StaticResource BtnCancel}">Отменить заказ</Button>
                 <Button x:Name="BtnDoneOrder" Click="BtnDoneOrder_Click">Выполнить заказ</Button>
-                <Button x:Name="BtnPrint" Click="BtnPrint_Click" Style="{StaticResource BtnEdit}">Печать</Button>
+                <Button x:Name="BtnPrint" Click="BtnPrint_Click" Style="{StaticResource BtnEdit}" Height="25" Margin="5,5,5,0" VerticalAlignment="Top">Печать</Button>
             </StackPanel>
         </Grid>
     </Border>
