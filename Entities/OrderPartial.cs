@@ -46,6 +46,7 @@ namespace IT_Center.Entities
         {
             get
             {
+                if (ServiceOfOrder.Count == 0) return "Выполнен";
                 if (ServiceOfOrder.ToList().Count(p => p.ServiceOfOrderStatusId == 1) <= ServiceOfOrder.Count
                    && ServiceOfOrder.ToList().Count(p => p.ServiceOfOrderStatusId == 1) != 0)
                 {
@@ -76,6 +77,7 @@ namespace IT_Center.Entities
         {
             get
             {
+                if (ServiceOfOrder.Count == 0) return Brushes.Green;
                 if (ServiceOfOrder.ToList().Count(p => p.ServiceOfOrderStatusId == 1) <= ServiceOfOrder.Count
                     && ServiceOfOrder.ToList().Count(p => p.ServiceOfOrderStatusId == 1) != 0)
                     return Brushes.Orange;

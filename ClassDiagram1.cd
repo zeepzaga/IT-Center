@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IT_Center.App" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.AppData" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEQAAQAAAAAAAAAAAEAAAAAAAAAAAAAAIAQAACAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Controls.DetailOrderControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\DetailOrderControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Controls.OrderControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIABAAEAAAAAAAAAAABAAAEAAAAAAACAAABAAAA=</HashCode>
+      <FileName>Controls\OrderControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Controls.ServiceInOrderControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Controls\ServiceInOrderControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Entities.Client" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAACAAAIAgAAAQAEAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Entities\ClientPartialClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.ITCenterEntities" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEBAEAAAAAAIAAAEAAAAAAAGAAAQAQAAAAQEAAACAQ=</HashCode>
+      <FileName>Entities\DataBaseModel.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.Detail" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAQAiACAAAIAAAAQAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Entities\Detail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.DetailOfOrder" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAECAAAAAAAAAAABAAAAAAQAQAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Entities\DetailOfOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.Employee" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEDAEIEAAAAAKAgEBAQAAAAAAAAAAAAAAAAAAAAgAg=</HashCode>
+      <FileName>Entities\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.Order" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAADAEIIAAAgIAAIgAAgAAAACEAAQAAAAAAAABACAAQ=</HashCode>
+      <FileName>Entities\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.Role" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.Service" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAgIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.ServiceOfOrder" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAECACAAAAAAAAAAAAAAAAAAAAAQQAQAAAAAAAAABAA=</HashCode>
+      <FileName>Entities\ServiceOfOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.ServiceOfOrderStatus" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ServiceOfOrderStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.sysdiagrams" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAAAAAAAAAAAAAAAQAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\sysdiagrams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.TypeOfDetail" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Entities\TypeOfDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Entities.User" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAACAAAAAACAAAQAAAAAAA=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Pages.AutorizationPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\AutorizationPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Pages.ClientListPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgkAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\ClientListPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Pages.CreateOrderPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAQAAAAAAAgAAAAAAAAEACAAABAAAEAIAAA=</HashCode>
+      <FileName>Pages\CreateOrderPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Pages.DetailsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAEAAAAAAAEAAAAAAAAAAQAAAAQABAAAAAAYAAA=</HashCode>
+      <FileName>Pages\DetailsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Pages.MainMenuPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAEAAAAAQAAAAAAAAAQAAAQACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\MainMenuPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Pages.OrderListPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAAAAAAAAAAAAAAAAAAAQAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Pages\OrderListPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Pages.ServicePage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAEAAAAAAAEAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Pages\ServicePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Pages.WorkerListPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEACAAAAQEAAAgAIgAAAAAAABEABAAAAAAAAAA=</HashCode>
+      <FileName>Pages\WorkerListPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Properties.Resources" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Properties.Settings" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IT_Center.Windows.AddWorkerWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAIAABAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAA=</HashCode>
+      <FileName>Windows\AddWorkerWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Windows.CleintWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Windows\ClientWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Windows.CreateDetailWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQQAAAIAAAAAAAAAAAAAAAIAAAAAAAAAEAAEAAAAA=</HashCode>
+      <FileName>Windows\CreateDetailWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Windows.CreateServiceWIndow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAgQAAAAAAAAIAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Windows\CreateServiceWIndow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IT_Center.Windows.PrintWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAABAAAAAAQABAAAAAAAAAAAAAAAAACAABAAAAA=</HashCode>
+      <FileName>Windows\PrintWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IT_Center.Windows"
         mc:Ignorable="d"
-        Title="AddWorkerWindow" Height="450" Width="800">
+        Title="" Height="450" Width="800">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" FontSize="28" Name="TbTitle">Добавление работника</TextBlock>
@@ -40,7 +40,7 @@
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 5">
                     <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" FontSize="24">Основная информация</TextBlock>
                     <Border Height="210" Width="210" BorderBrush="Black" BorderThickness="1" Background="LightGray">
-                        <Image x:Name="ImgPhoto"></Image>
+                        <Image Source="{Binding Photo}" x:Name="ImgPhoto"></Image>
                     </Border>
                     <StackPanel Margin="5 5 20 5" HorizontalAlignment="Right" Orientation="Horizontal">
                         <Button x:Name="BtnPhoto" Click="BtnPhoto_Click">Загрузить фото</Button>
