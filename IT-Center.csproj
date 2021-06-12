@@ -294,6 +294,7 @@
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
       <LastGenOutput>DataBaseModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\Kvitok.html" />
     <Resource Include="Resources\nullImageWorker.jpg" />
     <Resource Include="Resources\nullimg.png" />
   </ItemGroup>

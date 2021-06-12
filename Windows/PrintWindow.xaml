@@ -12,9 +12,6 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <WebBrowser Grid.Row="1" Name="BrowserMain"></WebBrowser>
-        <StackPanel Orientation="Horizontal">
-            <CheckBox Checked="ChbPrintAll_Checked" Unchecked="ChbPrintAll_Unchecked" x:Name="ChbPrintAll">Печатать даже отменёные услуги</CheckBox>
-        </StackPanel>
         <Button x:Name="BtnPrint" Click="BtnPrint_Click" HorizontalAlignment="Right">Печать</Button>
     </Grid>
 </Window>

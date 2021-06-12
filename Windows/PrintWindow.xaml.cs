@@ -2,6 +2,7 @@
 using mshtml;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,119 +22,65 @@ namespace IT_Center.Windows
     /// </summary>
     public partial class PrintWindow : Window
     {
-        Order order;
-        public PrintWindow(Order _order)
+        public PrintWindow(Order order)
         {
             InitializeComponent();
-            order = _order;
-            PrintForClient(order);
-        }
 
-        private void PrintForClient(Order order)
-        {
-            StringBuilder result = new StringBuilder();
-            result.Append(@"<!DOCTYPE html ><html><meta http-equiv='Content-Type' content='text/html;charset=UTF-8'><head></head>");
-            result.Append("<body>");
-            result.Append($"<h1 align=\"center\">Чек заказа №{order.OrderNumber}</h1>");
-            result.Append("<table width=100% border=1 bordercolor=#000 style='border-collapse:collapse;'>");
-            result.Append("<tr>");
-            result.Append("<th colspan=\"4\">Детали</th>");
-            result.Append("</tr>");
-            result.Append("<tr>");
-            result.Append("<th>Деталь</th>");
-            result.Append("<th>Количестов в заказе</th>");
-            result.Append("<th>Цена за штуку</th>");
-            result.Append("<th>Итоговая цена</th>");
-            result.Append("</tr>");
-            foreach (var item in order.DetailOfOrder.ToList())
-            {
-                result.Append("<tr>");
-                result.Append($"<td>{item.Detail.Name}</td>");
-                result.Append($"<td>{item.Count}</td>");
-                result.Append($"<td>{item.Detail.Price}</td>");
-                result.Append($"<td>{item.Detail.Price * item.Count}</td>");
-                result.Append("</tr>");
-            }
-            result.Append("<th colspan=\"4\">Услуги</th>");
-            result.Append("</tr>");
-            result.Append("<tr>");
-            result.Append("<th colspan=\"2\">Название</th>");
-            result.Append("<th colspan=\"2\">Цена</th>");
-            result.Append("</tr>");
-            foreach (var item in order.ServiceOfOrder.ToList().Where(p => p.ServiceOfOrderStatusId != 3).ToList())
-            {
-                result.Append("<tr>");
-                result.Append($"<td colspan=\"2\">{item.Service.Name}</td>");
-                result.Append($"<td colspan=\"2\">{item.Service.Price}</td>");
-                result.Append("</tr>");
-            }
-            result.Append("</table>");
-            result.Append($"<p>Заказчик: _______________ {order.Client.FullName}</p>");
-            result.Append("</body>");
-            result.Append("</html>");
-            BrowserMain.NavigateToString(result.ToString());
-        }
-        private void PrintAll(Order order)
-        {
-            StringBuilder result = new StringBuilder();
-            result.Append(@"<!DOCTYPE html ><html><meta http-equiv='Content-Type' content='text/html;charset=UTF-8'><head></head>");
-            result.Append("<body>");
-            result.Append($"<h1 align=\"center\">Чек заказа №{order.OrderNumber}</h1>");
-            result.Append("<table width=100% border=1 bordercolor=#000 style='border-collapse:collapse;'>");
-            result.Append("<tr>");
-            result.Append("<th colspan=\"4\">Детали</th>");
-            result.Append("</tr>");
-            result.Append("<tr>");
-            result.Append("<th>Деталь</th>");
-            result.Append("<th>Количестов в заказе</th>");
-            result.Append("<th>Цена за штуку</th>");
-            result.Append("<th>Итоговая цена</th>");
-            result.Append("</tr>");
-            foreach (var item in order.DetailOfOrder.ToList())
-            {
-                result.Append("<tr>");
-                result.Append($"<td>{item.Detail.Name}</td>");
-                result.Append($"<td>{item.Count}</td>");
-                result.Append($"<td>{item.Detail.Price}</td>");
-                result.Append($"<td>{item.Detail.Price * item.Count}</td>");
-                result.Append("</tr>");
-            }
-            result.Append("<th colspan=\"4\">Услуги</th>");
-            result.Append("</tr>");
-            result.Append("<tr>");
-            result.Append("<th colspan=\"2\">Название</th>");
-            result.Append("<th>Цена</th>");
-            result.Append("<th colspan=\"2\">Статус услуги</th>");
-            result.Append("</tr>");
-            foreach (var item in order.ServiceOfOrder.ToList())
-            {
-                result.Append("<tr>");
-                result.Append($"<td colspan=\"2\">{item.Service.Name}</td>");
-                result.Append($"<td>{item.Service.Price}</td>");
-                result.Append($"<td colspan=\"2\">{item.ServiceOfOrderStatus.Name}</td>");
-                result.Append("</tr>");
-            }
-            result.Append("</table>");
-            result.Append($"<p>Заказчик: _______________ {order.Client.FullName}</p>");
-            result.Append("</body>");
-            result.Append("</html>");
-            BrowserMain.NavigateToString(result.ToString());
-        }
+            String result = Properties.Resources.Kvitok.ToString();
+            StringBuilder ServicesDevices = new StringBuilder();
 
+            if (order.DetailOfOrder.Count != 0)
+            {
+                ServicesDevices.Append("<tr class=\"row8\"> <td class=\"column1 style10 s style12\" colspan=\"4\">Детали</td>");
+                ServicesDevices.Append("<td class=\"column6 style1 null\"></td>");
+                ServicesDevices.Append("<td class=\"column7 style1 null\"></td></tr>");
+                ServicesDevices.Append("<tr class=\"row9\"><td class=\"column1 style3 s\">Деталь</td>");
+                ServicesDevices.Append("<td class=\"column2 style3 s\">Количество в заказе</td>");
+                ServicesDevices.Append("<td class=\"column3 style3 s\">Цена за штуку</td>");
+                ServicesDevices.Append("<td class=\"column4 style3 s\">Итоговая цена</td></tr>");
+                foreach (var item in order.DetailOfOrder.ToList())
+                {
+                    ServicesDevices.Append("<tr class=\"row10\">");
+                    ServicesDevices.Append($"<td class=\"column1 style7 s\">{item.Detail.Name}</td>");
+                    ServicesDevices.Append($"<td class=\"column2 style8 n\">{item.Count}</td>");
+                    ServicesDevices.Append($"<td class=\"column3 style8 n\">{item.Detail.Price} р.</td>");
+                    ServicesDevices.Append($"<td class=\"column4 style8 n\">{item.Detail.Price * item.Count} р.</td>");
+                    ServicesDevices.Append("</tr>");
+                }
+            }
+            if (order.ServiceOfOrder.Count != 0)
+            {
+                ServicesDevices.Append("<tr class=\"row5\">");
+                ServicesDevices.Append("<td class=\"column1 style10 s style12\" colspan=\"4\">Услуги</td></tr>");
+                ServicesDevices.Append("<tr class=\"row6\">");
+                ServicesDevices.Append("<td class=\"column1 style10 s style12\" colspan=\"3\">Название</td>");
+                ServicesDevices.Append("<td class=\"column3 style10 s style12\">Цена</td>");
+                ServicesDevices.Append("</tr>");
+                foreach (var item in order.ServiceOfOrder.ToList().Where(p => p.ServiceOfOrderStatusId != 3).ToList())
+                {
+                    ServicesDevices.Append("<tr class=\"row7\">");
+                    ServicesDevices.Append($"<td class=\"column1 style13 s style14\" colspan=\"3\">{item.Service.Name}</td>");
+                    ServicesDevices.Append($"<td class=\"column3 style15 n style16\">{item.Service.Price} р.</td>");
+                    ServicesDevices.Append("</tr>");
+                }
+            }
+
+            result = result.Replace("DATA", ServicesDevices.ToString());
+            result = result.Replace("ClientName", order.Client.FullName);
+            result = result.Replace("ClientTelephone", order.Client.TelephoneNumber);
+            result = result.Replace("ClientEmail", order.Client.Email);
+            result = result.Replace("OrderName", order.Description);
+            result = result.Replace("DateOrder", order.DateTimeOfCreate.ToString("dd.MM.yyyy"));
+            result = result.Replace("WorkerName", order.Employee.FullName);
+            result = result.Replace("OrderNumber", order.OrderNumber);
+
+            BrowserMain.NavigateToString(result);
+        }
+        
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             var document = BrowserMain.Document as IHTMLDocument2;
             document.execCommand("Print");
-        }
-
-        private void ChbPrintAll_Checked(object sender, RoutedEventArgs e)
-        {
-            PrintAll(order);
-        }
-
-        private void ChbPrintAll_Unchecked(object sender, RoutedEventArgs e)
-        {
-            PrintForClient(order);
         }
     }
 }
